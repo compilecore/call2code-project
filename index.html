@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PackMate – Travel Packing Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Screen 1: Welcome -->
+  <div id="screen1" class="screen">
+    <h1>🧳 PackMate</h1>
+    <p>Your smart travel packing assistant</p>
+    <button onclick="goToScreen(2)">Start a New Trip</button>
+  </div>
+
+  <!-- Screen 2: Trip Setup -->
+  <div id="screen2" class="screen hidden">
+    <h2>📍 Trip Setup</h2>
+    <input type="text" id="destination" placeholder="Enter destination" />
+    <input type="date" id="travelDate" />
+    <select id="tripType">
+      <option>Leisure</option>
+      <option>Business</option>
+      <option>Adventure</option>
+      <option>Other</option>
+    </select>
+    <br>
+    <button onclick="goToScreen(3)">Next: Add Activities</button>
+  </div>
+
+  <!-- Screen 3: Activity Selector -->
+  <div id="screen3" class="screen hidden">
+    <h2>🏕 Select Activities</h2>
+    <label><input type="checkbox" value="beach" /> 🏖 Beach</label><br>
+    <label><input type="checkbox" value="hiking" /> 🥾 Hiking</label><br>
+    <label><input type="checkbox" value="dining" /> 🍽 Fine Dining</label><br>
+    <label><input type="checkbox" value="sightseeing" /> 🏛 Sightseeing</label><br>
+    <label><input type="checkbox" value="fitness" /> 🏋 Fitness</label><br>
+    <label>✨ Custom activity: <input type="text" id="customActivity" placeholder="e.g., Photoshoot" /></label><br>
+    <button onclick="showWeatherAndContinue()">Next: Check Weather</button>
+  </div>
+
+  <!-- Screen 4: Weather Preview -->
+  <div id="screen4" class="screen hidden">
+    <h2>🌦 Weather Forecast</h2>
+    <p id="weatherInfo">Loading forecast...</p>
+    <button onclick="generatePackingList()">Continue to Packing List</button>
+  </div>
+
+  <!-- Screen 5: Smart Packing List -->
+  <div id="screen5" class="screen hidden">
+    <h2>✅ Your Smart Packing List</h2>
+    <ul id="packingList"></ul>
+    <br>
+    <button onclick="downloadList()">📥 Download</button>
+    <button onclick="goToScreen(1)">🏠 Start Over</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

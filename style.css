@@ -1,33 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #eef7ff;
-  padding: 40px;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.navbar {
+  background: #005f99;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+.navbar a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navbar .right-nav button {
+  background: #ffdd00;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.screen {
+  padding-top: 60px;
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 25px;
   text-align: center;
 }
+
+.screen-hero {
+  background: linear-gradient(135deg, #cce7ff, #e6f4ff);
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.screen-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.screen-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.primary-btn {
+  background: #005f99;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.primary-btn:hover {
+  background: #004f80;
+}
+
 input, select, button {
   padding: 10px;
   margin: 10px;
   font-size: 1rem;
 }
-button {
-  cursor: pointer;
+/* Remove default bullets from the packing list */
+#packingList {
+  list-style-type: none;
+  padding-left: 0;
 }
-.screen {
-  max-width: 500px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.hidden {
-  display: none;
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
-ul li::before {
-  content: "📦 ";
-  margin-right: 5px;
+#packingList li {
+  margin: 5px 8px;
 }

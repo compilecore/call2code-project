@@ -1,74 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PackMate – Travel Packing Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="left-nav">
-      <a href="tel:1234567890">Contact Us: 1234567890</a>
-      <a href="#about">About Us</a>
+<body class="light">
+  <!-- Fixed header wrapper -->
+  <div class="fixed-header">
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <label><input type="checkbox" onchange="toggleDarkMode()"> 🌙 <span data-translate>Dark Mode</span></label>
+      <label>🌐 
+        <select onchange="translatePage(this.value)">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+        </select>
+      </label>
+      <button onclick="speakCurrentScreen()"><i class="fas fa-volume-up"></i> <span data-translate>Read Aloud</span></button>
     </div>
-    <div class="right-nav">
-      <button onclick="goToScreen(1)">Home</button>
-    </div>
-  </nav>
 
-  <!-- Screen 1 -->
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="left-nav">
+        <a href="#" data-translate><i class="fas fa-phone"></i> Contact Us: 123-456-7890</a>
+        <a href="#" data-translate><i class="fas fa-info-circle"></i> About Us</a>
+      </div>
+      <div class="right-nav">
+        <button onclick="goToScreen(1)"><i class="fas fa-home"></i> <span data-translate>Home</span></button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Screens -->
   <div id="screen1" class="screen screen-hero">
-    <h1>🧳 PackMate</h1>
-    <p>Your smart travel packing assistant</p>
-    <button class="primary-btn" onclick="goToScreen(2)">Start a New Trip</button>
+    <div class="screen-content">
+      <h1 data-translate>🧳 PackMate</h1>
+      <p data-translate>Your smart travel packing assistant that helps you pack efficiently for any trip</p>
+      <button onclick="goToScreen(2)" data-translate><i class="fas fa-suitcase"></i> Start a New Trip</button>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌦</div>
+          <h3 data-translate>Smart Weather Integration</h3>
+          <p data-translate>Get packing recommendations based on destination weather forecast</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌎</div>
+          <h3 data-translate>Multi-language Support</h3>
+          <p data-translate>Use PackMate in your preferred language for a personalized experience</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3 data-translate>Activity-Based Packing</h3>
+          <p data-translate>Customize your list based on planned activities and special events</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Screen 2 -->
-  <div id="screen2" class="screen hidden">
-    <h2>📍 Trip Setup</h2>
-    <label for="destination">Destination:</label>
-    <input type="text" id="destination" placeholder="e.g., Tokyo">
-    <label for="travelDate">Travel Date:</label>
-    <input type="date" id="travelDate">
-    <label for="tripType">Trip Type:</label>
-    <select id="tripType">
-      <option>Leisure</option><option>Business</option><option>Adventure</option><option>Other</option>
-    </select>
-    <button onclick="goToScreen(3)">Next: Add Activities</button>
+  <div id="screen2" class="screen hidden card">
+    <div class="screen-content">
+      <h2 data-translate><i class="fas fa-map-marked-alt"></i> Trip Setup</h2>
+      <label data-translate>Destination:</label>
+      <input type="text" id="destination" placeholder="e.g., Tokyo, Paris, New York">
+      <label data-translate>Travel Date:</label>
+      <input type="date" id="travelDate">
+      <label data-translate>Trip Type:</label>
+      <select id="tripType">
+        <option value="Leisure" data-translate>Leisure</option>
+        <option value="Business" data-translate>Business</option>
+        <option value="Adventure" data-translate>Adventure</option>
+        <option value="Family" data-translate>Family</option>
+        <option value="Romantic" data-translate>Romantic</option>
+        <option value="Other" data-translate>Other</option>
+      </select>
+      <label data-translate>Travel Duration:</label>
+      <input type="number" id="travelDays" min="1" value="7" placeholder="Number of days">
+      <div class="button-group">
+        <button class="secondary" onclick="goToScreen(1)" data-translate><i class="fas fa-arrow-left"></i> Back</button>
+        <button onclick="goToScreen(3)" data-translate>Next: Add Activities <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
   </div>
 
-  <!-- Screen 3 -->
-  <div id="screen3" class="screen hidden">
-    <h2>🏕 Select Activities</h2>
-    
-    <label><input type="checkbox" value="beach" /> 🏖 Beach</label><br>
-    <label><input type="checkbox" value="hiking" /> 🥾 Hiking</label><br>
-    <label><input type="checkbox" value="dining" /> 🍽 Fine Dining</label><br>
-    <label><input type="checkbox" value="sightseeing" /> 🏛 Sightseeing</label><br>
-    <label><input type="checkbox" value="fitness" /> 🏋 Fitness</label><br>
-    <label>✨ Custom activity: <input type="text" id="customActivity" placeholder="e.g., Photoshoot" /></label><br>
-    
-    <button onclick="showWeatherAndContinue()">Next: Check Weather</button>
+  <div id="screen3" class="screen hidden card">
+    <div class="screen-content">
+      <h2 data-translate><i class="fas fa-hiking"></i> Select Activities</h2>
+      <p data-translate>Select all activities you plan to do during your trip:</p>
+      
+      <div class="activity-grid">
+        <div class="activity-item" onclick="toggleActivity(this, 'beach')">
+          <div class="activity-icon">🏖</div>
+          <div data-translate>Beach</div>
+        </div>
+        <div class="activity-item" onclick="toggleActivity(this, 'hiking')">
+          <div class="activity-icon">⛰</div>
+          <div data-translate>Hiking</div>
+        </div>
+        <div class="activity-item" onclick="toggleActivity(this, 'dining')">
+          <div class="activity-icon">🍽</div>
+          <div data-translate>Fine Dining</div>
+        </div>
+        <div class="activity-item" onclick="toggleActivity(this, 'sightseeing')">
+          <div class="activity-icon">🏛</div>
+          <div data-translate>Sightseeing</div>
+        </div>
+        <div class="activity-item" onclick="toggleActivity(this, 'fitness')">
+          <div class="activity-icon">💪</div>
+          <div data-translate>Fitness</div>
+        </div>
+        <div class="activity-item" onclick="toggleActivity(this, 'shopping')">
+          <div class="activity-icon">🛍</div>
+          <div data-translate>Shopping</div>
+        </div>
+      </div>
+      
+      <label data-translate>Custom activity:</label>
+      <input type="text" id="customActivity" placeholder="e.g., Photoshoot, Conference, Wedding">
+      
+      <div class="button-group">
+        <button class="secondary" onclick="goToScreen(2)" data-translate><i class="fas fa-arrow-left"></i> Back</button>
+        <button onclick="showWeatherAndContinue()" data-translate>Next: Check Weather <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
   </div>
 
-  <!-- Screen 4 -->
-  <div id="screen4" class="screen hidden">
-    <h2>🌦 Weather Forecast</h2>
-    <p id="weatherInfo">Loading forecast...</p>
-    <button onclick="generatePackingList()">Continue to Packing List</button>
+  <div id="screen4" class="screen hidden card">
+    <div class="screen-content">
+      <h2 data-translate><i class="fas fa-cloud-sun"></i> Weather Forecast</h2>
+      <div class="weather-container">
+        <div class="weather-icon">⏳</div>
+        <p id="weatherInfo" data-translate>Loading forecast...</p>
+      </div>
+      
+      <div class="button-group-center">
+        <button onclick="generatePackingList()" data-translate>Continue to Packing List <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
   </div>
 
-  <!-- Screen 5 -->
-  <div id="screen5" class="screen hidden">
-    <h2>✅ Your Smart Packing List</h2>
-    <ul id="packingList"></ul>
-    <button onclick="downloadList()">📥 Download</button>
-    <button onclick="goToScreen(1)">🏠 Start Over</button>
+  <div id="screen5" class="screen hidden card">
+    <div class="screen-content">
+      <h2 data-translate><i class="fas fa-check-circle"></i> Your Smart Packing List</h2>
+      <p data-translate>Here's your personalized packing list for your trip:</p>
+      
+      <div class="packing-list-container">
+        <h3><i class="fas fa-suitcase"></i> <span id="tripSummary">Tokyo, 7 days</span></h3>
+        <ul id="packingList"></ul>
+      </div>
+      
+      <div class="button-group-center">
+        <button onclick="downloadList()" data-translate><i class="fas fa-download"></i> Download List</button>
+        <button onclick="emailList()" data-translate><i class="fas fa-envelope"></i> Email List</button>
+        <button onclick="goToScreen(1)" data-translate><i class="fas fa-home"></i> Start Over</button>
+      </div>
+    </div>
   </div>
 
-  <!-- 🔽 Load JS last so all elements are ready -->
+  <div id="screen404" class="screen hidden card">
+    <div class="screen-content">
+      <h2 data-translate><i class="fas fa-exclamation-triangle"></i> 404 - Page Not Found</h2>
+      <p data-translate>This screen doesn't exist. Please go back home.</p>
+      <div class="button-group-center">
+        <button onclick="goToScreen(1)" data-translate><i class="fas fa-home"></i> Return Home</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p data-translate>© 2025 PackMate Travel Assistant. All rights reserved.</p>
+    <p data-translate>Made with ❤ for travelers around the world</p>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

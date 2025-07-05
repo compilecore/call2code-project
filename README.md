@@ -1,4 +1,20 @@
 # call2code-project
+
+Project Badges
+
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Client](https://img.shields.io/badge/Client-Side--Only-lightgrey)
+![Multilingual](https://img.shields.io/badge/Multilingual-4%20Languages-green)
+![Dark Mode](https://img.shields.io/badge/Theme-Dark--Mode-black)
+![Web Speech API](https://img.shields.io/badge/Feature-Web%20Speech%20API-red)
+![localStorage](https://img.shields.io/badge/Feature-localStorage-blue)
+![Weather Simulation](https://img.shields.io/badge/Weather-Simulated-orange)
+![Hackathon](https://img.shields.io/badge/Hackathon-Call2Code%20Round%202-purple)
+
+
+
 A smart Travel Packing Assistant tool that creates personalized packing lists based on your destination,weather and planned activities using real-time APIs like Open Weather and Google Calendar.
 Ideal for travelers who want to be efficient, prepared and stress-free.
 ![image](https://github.com/user-attachments/assets/731eef6d-9b89-46eb-b3b5-29bffc2fb06e)

@@ -1,6 +1,6 @@
 # call2code-project
-A smart Travel Packing Assistant tool that creates personalized packing lists based on your destination,weather, and planned activities using real-time APIs like Open Weather and Google Calendar.
-Ideal for travelers who want to be efficient, prepared, and stress-free.
+A smart Travel Packing Assistant tool that creates personalized packing lists based on your destination,weather and planned activities using real-time APIs like Open Weather and Google Calendar.
+Ideal for travelers who want to be efficient, prepared and stress-free.
 ![image](https://github.com/user-attachments/assets/731eef6d-9b89-46eb-b3b5-29bffc2fb06e)
 ![image](https://github.com/user-attachments/assets/deb9648d-f6b7-4473-b274-23c0c6b170e0)
 ![image](https://github.com/user-attachments/assets/18e9533c-940c-4b33-8f9b-f3769ec5a896)
@@ -34,7 +34,7 @@ Text-to-Speech (Hard): The "Read Aloud" button uses the Web Speech API to speak 
 ![WhatsApp Image 2025-07-06 at 01 20 59_924b4698](https://github.com/user-attachments/assets/195d2851-230e-4c43-bc19-9870fc44bcec)
 
 
-Dynamic Weather Forecast & UI (Hard): Simulates weather based on the city (sunny, rainy, cloudy) and changes background .
+Dynamic Weather Forecast & UI (Hard): Simulated weather based on the city (sunny, rainy, cloudy) and changes background .
 ![WhatsApp Image 2025-07-06 at 01 22 41_8213bdf9](https://github.com/user-attachments/assets/273cfe45-5198-4691-9069-a4619920dedf)
 
 
@@ -74,7 +74,7 @@ To run the PackMate application on your local machine:
 4. No server or installation is required — it’s a fully client-side web app.
 
 Alternatively, via command line:
-git clone https://compilecore.github.io/call2code-project/
+git clone https://github.com/compilecore/call2code-project.git
 
 
 Testing Instructions:
